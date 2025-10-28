@@ -1,60 +1,50 @@
-import React, { useState } from "react";
+import React from "react";
+import Slider from "react-slick";
+import "../styles/slick.css";
+import "../styles/slick-theme.css";
+import { Link } from "react-router-dom";
+import { FaArrowUp } from "react-icons/fa";
+import { images, sliderSettings } from "../data/slider";
 
-// Slides data
-const slides = [
-  {
-    image: "https://static.vecteezy.com/system/resources/thumbnails/040/890/255/small_2x/ai-generated-empty-wooden-table-on-the-natural-background-for-product-display-free-photo.jpg",
-    title: "Labware",
-    description: "High-quality labware for precise scientific experiments.",
-  },
-  {
-    image: "/images/pathology.webp",
-    title: "Pathology",
-    description: "Advanced pathology solutions for accurate diagnostics.",
-  },
-  {
-    image: "/images/tubes-and-vials.webp",
-    title: "Tubes and Vials",
-    description: "Durable tubes and vials for secure sample storage.",
-  },
-];
-
-const HeroSection = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  // Manual slide navigation
-  const nextSlide = () => setCurrentIndex((prev) => (prev + 1) % slides.length);
-  const prevSlide = () => setCurrentIndex((prev) => (prev - 1 + slides.length) % slides.length);
-
+export default function HeroSection() {
+  
   return (
-    <section
-      className="relative w-full h-[80vh] mt-20 bg-cover bg-center flex flex-col justify-center items-center text-center p-8 "
-      style={{ backgroundImage: `url(${slides[currentIndex].image})` }}
-    >
-      {/* Overlay */}
-      <div className="absolute inset-0 bg-black bg-opacity-40 flex flex-col justify-center items-center text-center text-white p-4">
-        <h2 className="text-3xl md:text-5xl font-bold mb-4">
-          {slides[currentIndex].title}
-        </h2>
-        <p className="text-lg md:text-2xl">{slides[currentIndex].description}</p>
-      </div>
+        <div className="bg-transparent rounded-2xl overflow-hidden">
+          <div className="relative">
+            <Slider {...sliderSettings}>
+              {images.map((img, index) => (
+                <div key={index} className="outline-none">
+                  <div className="relative w-full h-[400px] sm:h-[500px] md:h-[600px] lg:h-[700px] overflow-hidden">
+                    <img
+                      src={img.src}
+                      alt={img.alt}
 
-      {/* Navigation buttons */}
-      <button
-        onClick={prevSlide}
-        className="absolute top-1/2 left-4 -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full z-20 hover:bg-opacity-75 transition"
-      >
-        &#10094;
-      </button>
+                      className="absolute inset-0 w-full h-full object-cover object-center z-0" />
 
-      <button
-        onClick={nextSlide}
-        className="absolute top-1/2 right-4 -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full z-20 hover:bg-opacity-75 transition"
-      >
-        &#10095;
-      </button>
-    </section>
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent z-10 pointer-events-none"></div>
+
+                    <div className="absolute inset-0 z-20 flex flex-col items-center justify-center text-center p-6 sm:p-8">
+                      <div className="max-w-3xl ">
+                        <h2 className="text-2xl text-black sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 md:mb-6  drop-shadow-lg ">
+                          {img.title}
+                        </h2>
+                        <p className="text-sm text-black  sm:text-base md:text-lg lg:text-xl  max-w-2xl drop-shadow-md">
+                          {img.description}
+                        </p>
+                        <Link to="/product" >
+                          <button className=" flex flex-row mt-5 m-auto  cursor-pointer bg-blue-400 hover:bg-blue-700 text-black  font-semibold py-2 px-6  rounded-2xl uppercase">view products
+                            <FaArrowUp className="rotate-45 ml-2" />
+                          </button>
+                        </Link>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </Slider>
+          </div>
+        </div>
   );
-};
+}
 
-export default HeroSection;
+ //export default HeroSection;
