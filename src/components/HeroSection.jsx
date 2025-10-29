@@ -1,20 +1,21 @@
 import React from "react";
 import Slider from "react-slick";
 import "../styles/slick.css";
-import "../styles/slick-theme.css";
 import { Link } from "react-router-dom";
 import { FaArrowUp } from "react-icons/fa";
 import { images, sliderSettings } from "../data/slider";
+import FeaturedProducts from "./FeaturedProducts";
 
-export default function HeroSection() {
+const HeroSection = () => {
   
   return (
-        <div className="bg-transparent rounded-2xl overflow-hidden">
-          <div className="relative">
-            <Slider {...sliderSettings}>
+    <>
+        <div className="bg-transparent overflow-hidden">
+          <div className="relative ">
+            <Slider {...sliderSettings}>     
               {images.map((img, index) => (
                 <div key={index} className="outline-none">
-                  <div className="relative w-full h-[400px] sm:h-[500px] md:h-[600px] lg:h-[700px] overflow-hidden">
+                  <div className="relative w-full h-screen">
                     <img
                       src={img.src}
                       alt={img.alt}
@@ -44,7 +45,9 @@ export default function HeroSection() {
             </Slider>
           </div>
         </div>
+        <FeaturedProducts />
+        </>
   );
 }
 
- //export default HeroSection;
+ export default HeroSection;

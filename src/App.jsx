@@ -8,6 +8,7 @@ import Product from './components/Products';
 import Blogs from './components/Blogs';
 import Heroimage from './components/HeroSection';
 import { Navigate } from 'react-router-dom';
+import AllProducts from './components/AllProducts';
 
 
 const App = () => {
@@ -21,6 +22,7 @@ const App = () => {
         <Route path="/contact" element={<Contact />} />
         <Route path="/product" element={<Product />} />
         <Route path="/blogs" element={<Blogs />} />
+        <Route path="/all-products" element={<AllProducts />} />
       </Routes>
     </div>
   );
