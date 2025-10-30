@@ -9,6 +9,7 @@ import Blogs from './components/Blogs';
 import Heroimage from './components/HeroSection';
 import { Navigate } from 'react-router-dom';
 import AllProducts from './components/AllProducts';
+import ProductDetails from './components/ProductDetails';
 
 
 const App = () => {
@@ -23,6 +24,7 @@ const App = () => {
         <Route path="/product" element={<Product />} />
         <Route path="/blogs" element={<Blogs />} />
         <Route path="/all-products" element={<AllProducts />} />
+        <Route path="/product/:id" element={<ProductDetails/>}/>
       </Routes>
     </div>
   );
