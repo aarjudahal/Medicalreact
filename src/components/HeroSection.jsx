@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { FaArrowUp } from "react-icons/fa";
 import { images, sliderSettings } from "../data/slider";
 import FeaturedProducts from "./FeaturedProducts";
+import WhoAreWe from "./WhoAreWe";
 
 const HeroSection = () => {
   
@@ -46,6 +47,7 @@ const HeroSection = () => {
           </div>
         </div>
         <FeaturedProducts />
+        <WhoAreWe/>
         </>
   );
 }
