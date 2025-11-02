@@ -13,7 +13,7 @@ const FeaturedProducts = () => {
         <h2 className="text-3xl font-bold">Featured Products</h2>
         <Link
           to="/all-products"
-          className="text-black font-medium uppercase hover:text-blue-600 transition flex items-center" >
+          className="text-black font-medium uppercase hover:text-blue-600 transition flex items-center font-[italic]" >
           View All <FaArrowRight className="ml-2" />
         </Link>
       </div>
@@ -24,13 +24,13 @@ const FeaturedProducts = () => {
             <img src={products.image} alt={products.name} className="w-40 h-32 object-cover mx-auto" />
             <div className="border-b border-gray-300 w-full mt-3 mb-0"></div>
             
-              <div className="flex justify-between items-center">
-                <h3 className="text-lg font-semibold">{products.name}</h3>
+              <div className="flex justify-between items-center p-1">
+                <h3 className="text-lg font-semibold font-[Georgia]">{products.name}</h3>
                 <Link to={`/product/${products.id}`}>
                 <FaArrowRight className="text-blue-600 cursor-pointer " />
                 </Link>
               </div>  
-              <p className="text-sm text-gray-500 mt-1">{products.model}</p>
+              <p className="text-sm text-gray-500 p-1">Model:{products.model}</p>
             </div>
         
         ))}

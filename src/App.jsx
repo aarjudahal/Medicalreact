@@ -1,5 +1,5 @@
-import React from 'react';
-import { Routes, Route } from 'react-router-dom';
+import React,{useEffect} from 'react';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import About from './components/About';
 import Quality from './components/Quality';
@@ -7,15 +7,25 @@ import Contact from './components/Contact';
 import Product from './components/Products';
 import Blogs from './components/Blogs';
 import Heroimage from './components/HeroSection';
-import { Navigate } from 'react-router-dom';
 import AllProducts from './components/AllProducts';
-import ProductDetails from './components/ProductDetails';
+import ProductDetails from './pages/ProductDetails';
+import WhoAreWeDetails from './pages/WhoAreWeDetails';
 
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+}
 
 const App = () => {
   return (
     <div> 
    <Navbar />
+   <ScrollToTop />
      <Routes>
         <Route path="/" element={<Heroimage />} />
         <Route path="/about" element={<About />} />
@@ -25,6 +35,7 @@ const App = () => {
         <Route path="/blogs" element={<Blogs />} />
         <Route path="/all-products" element={<AllProducts />} />
         <Route path="/product/:id" element={<ProductDetails/>}/>
+        <Route path="/who-are-we-details" element={<WhoAreWeDetails />} />
       </Routes>
     </div>
   );

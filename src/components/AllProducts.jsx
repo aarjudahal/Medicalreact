@@ -42,12 +42,12 @@ const AllProducts = () => {
               />
               <div className="border-b border-gray-300 w-full mt-3 mb-0"></div>
               <div className="flex justify-between items-center px-3">
-                <h3 className="text-lg font-semibold">{product.name}</h3>
+                <h3 className="text-lg font-semibold font-[Georgia]">{product.name}</h3>
                 <Link to={`/product/${product.id}`}>
                   <FaArrowRight className="text-blue-600 cursor-pointer" />
                 </Link>
               </div>
-              <p className="text-sm text-gray-500 mt-1 px-3">{product.model}</p>
+              <p className="text-sm text-gray-500 mt-1 px-3">Model:{product.model}</p>
             </div>
           ))
         ) : (

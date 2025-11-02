@@ -1,10 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+
 const WhoAreWe = () => {
+  
   return (
     <section className="max-w-7xl mx-auto px-6 py-16">
-      <h2 className="text-4xl font-bold text-center mb-12">Who Are We</h2>
+      <h2 className="text-3xl font-semibold text-center mb-12 font-[Georgia]">Who Are We</h2>
        <div className="flex flex-col md:flex-row items-center gap-8">
          <div className="md:w-1/2">
           <img 
@@ -25,8 +27,8 @@ const WhoAreWe = () => {
           </p>
 
           <Link 
-            to="/who-are-we-details" // Placeholder for future page
-            className="inline-block mt-4 px-6 py-2 bg-white-600 text-black font-medium rounded-full border-2 border-black-800"> Read More</Link>
+            to="/who-are-we-details" 
+            className="inline-block mt-4 px-6 py-2 bg-white-600 text-black font-medium rounded-full border-2 border-black"> Read More</Link>
         </div>
 
       </div>

@@ -11,7 +11,7 @@ const HeroSection = () => {
   
   return (
     <>
-        <div className="bg-transparent overflow-hidden">
+        <div id="hero" className="bg-transparent overflow-hidden">
           <div className="relative ">
             <Slider {...sliderSettings}>     
               {images.map((img, index) => (
