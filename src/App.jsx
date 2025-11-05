@@ -10,6 +10,8 @@ import Heroimage from './components/HeroSection';
 import AllProducts from './components/AllProducts';
 import ProductDetails from './pages/ProductDetails';
 import WhoAreWeDetails from './pages/WhoAreWeDetails';
+import Footer from "./components/Footer";
+
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -37,6 +39,7 @@ const App = () => {
         <Route path="/product/:id" element={<ProductDetails/>}/>
         <Route path="/who-are-we-details" element={<WhoAreWeDetails />} />
       </Routes>
+      <Footer />
     </div>
   );
 };
