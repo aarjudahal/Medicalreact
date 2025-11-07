@@ -11,6 +11,8 @@ import AllProducts from './components/AllProducts';
 import ProductDetails from './pages/ProductDetails';
 import WhoAreWeDetails from './pages/WhoAreWeDetails';
 import Footer from "./components/Footer";
+import Blogsdata from "./components/Blogsdata";
+
 
 
 function ScrollToTop() {
@@ -38,7 +40,9 @@ const App = () => {
         <Route path="/all-products" element={<AllProducts />} />
         <Route path="/product/:id" element={<ProductDetails/>}/>
         <Route path="/who-are-we-details" element={<WhoAreWeDetails />} />
+        <Route path="/blogsdata/:id" element={<Blogsdata />} />
       </Routes>
+
       <Footer />
     </div>
   );

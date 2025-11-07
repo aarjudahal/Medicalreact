@@ -6,6 +6,8 @@ import { FaArrowUp } from "react-icons/fa";
 import { images, sliderSettings } from "../data/slider";
 import FeaturedProducts from "./FeaturedProducts";
 import WhoAreWe from "./WhoAreWe";
+import Blogsdata from "./Blogsdata";
+
 
 const HeroSection = () => {
   
@@ -19,11 +21,9 @@ const HeroSection = () => {
                   <div className="relative w-full h-screen">
                     <img
                       src={img.src}
-                      alt={img.alt}
+                      alt={img.alt} className="absolute inset-0 w-full h-full object-cover object-center z-0" />
 
-                      className="absolute inset-0 w-full h-full object-cover object-center z-0" />
-
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent z-10 pointer-events-none"></div>
+                    <div className="absolute inset-0 bg-transparent"></div>
 
                     <div className="absolute inset-0 z-20 flex flex-col items-center justify-center text-center p-6 sm:p-8">
                       <div className="max-w-3xl ">
@@ -48,6 +48,7 @@ const HeroSection = () => {
         </div>
         <FeaturedProducts />
         <WhoAreWe/>
+        <Blogsdata />
         </>
   );
 }

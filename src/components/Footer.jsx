@@ -54,10 +54,10 @@ const Footer = () => {
 
           <h3 className="text-lg font-semibold mt-6 mb-3">Social media</h3>
           <div className="flex space-x-3">
-            <a href="#" className="text-black hover:text-blue-600">
+            <a href="https://www.facebook.com" className="text-black hover:text-blue-600 ">
               <FaFacebookF />
             </a>
-            <a href="#" className="text-black hover:text-pink-600">
+            <a href="https://www.instagram.com" className="text-black hover:text-pink-600">
               <FaInstagram />
             </a>
           </div>

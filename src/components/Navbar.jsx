@@ -19,7 +19,7 @@ const Navbar = () => {
   }
 
   return (
-    <nav className="bg-white top-0 text-black shadow-md fixed w-full z-10">
+    <nav className="bg-white top-0 text-black shadow-md left-0 fixed w-full z-50">
       <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
         {/* Logo */}
         <Link to="/" className="flex items-center space-x-2">
@@ -91,60 +91,81 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="md:hidden bg-white shadow-md px-6 py-4 space-y-4 font-medium uppercase">
-          
-          {/* About Us Mobile */}
-          <div>
-            <div className="flex justify-between items-center">
-              <Link to="/about" onClick={() => setIsOpen(false)} className="hover:text-indigo-600 uppercase">
-                About Us
-              </Link>
-              <button onClick={() => setAboutOpen(!aboutOpen)}>
-                <RiArrowDropDownLine className={`w-6 h-6 transition-transform duration-300 ${aboutOpen ? 'rotate-180' : ''}`} />
-              </button>
-            </div>
-            {aboutOpen && (
-              <div className="pl-4 mt-2 space-y-1">
-                <Link to="/about#origin" className="block hover:text-indigo-600" onClick={() => setIsOpen(false)}>Origin and Evolution</Link>
-                <Link to="/about#mission" className="block hover:text-indigo-600" onClick={() => setIsOpen(false)}>Mission, Vision and Values</Link>
-                <Link to="/about#sustainability" className="block hover:text-indigo-600" onClick={() => setIsOpen(false)}>Sustainability</Link>
-                <Link to="/about#why-choose-us" className="block hover:text-indigo-600" onClick={() => setIsOpen(false)}>Why Choose Us</Link>
-              </div>
-            )}
-          </div>
+  <>
+    {/* White overlay behind menu, but below navbar */}
+    <div
+      className="fixed inset-0 bg-white z-40 md:hidden"
+      onClick={() => setIsOpen(false)}
+    ></div>
 
-          {/* Product Mobile */}
-          <div>
-            <div className="flex justify-between items-center">
-              <Link to="/product" onClick={() => setIsOpen(false)} className="hover:text-indigo-600 uppercase">
-                Product
-              </Link>
-              <button onClick={() => setProductOpen(!productOpen)}>
-                <RiArrowDropDownLine className={`w-6 h-6 transition-transform duration-300 ${productOpen ? 'rotate-180' : ''}`} />
-              </button>
-            </div>
-            {productOpen && (
-              <div className="pl-4 mt-2 space-y-1">
-                <Link to="/product#histology-and-pathology" className="block hover:text-indigo-600" onClick={() => setIsOpen(false)}>Histology and Pathology</Link>
-                <Link to="/product#tubes-and-vials" className="block hover:text-indigo-600" onClick={() => setIsOpen(false)}>Tubes and Vials</Link>
-                <Link to="/product#liquid-handling" className="block hover:text-indigo-600" onClick={() => setIsOpen(false)}>Liquid Handling</Link>
-                <Link to="/product#labware" className="block hover:text-indigo-600" onClick={() => setIsOpen(false)}>Labware</Link>
-                <Link to="/product#hospital-supplies" className="block hover:text-indigo-600" onClick={() => setIsOpen(false)}>Hospital Supplies</Link>
-                <Link to="/product#sharps-disposal" className="block hover:text-indigo-600" onClick={() => setIsOpen(false)}>Sharps Disposal</Link>
-                <Link to="/product#waste-bins" className="block hover:text-indigo-600" onClick={() => setIsOpen(false)}>Waste Bins</Link>
-                <Link to="/product#lights-and-scales" className="block hover:text-indigo-600" onClick={() => setIsOpen(false)}>Lights and Scales</Link>
-                <Link to="/product#measuring-and-testing" className="block hover:text-indigo-600" onClick={() => setIsOpen(false)}>Measuring and Testing</Link>
-                <Link to="/product#physiotherapy" className="block hover:text-indigo-600" onClick={() => setIsOpen(false)}>Physiotherapy</Link>
-              </div>
-            )}
-          </div>
+    {/* Mobile slide-in menu */}
+    <div className="fixed top-0 right-0 w-3/4 h-full bg-white shadow-lg px-6 py-4 space-y-4 font-medium uppercase z-[60] overflow-y-auto">
+      {/* Close Button */}
+      <button
+        onClick={() => setIsOpen(false)}
+        className="absolute top-4 right-4 text-gray-700 hover:text-black"
+      >
+        <FiX className="w-7 h-7" />
+      </button>
 
-          {/* Other links */}
-          <Link to="/quality" className="block hover:text-indigo-600" onClick={() => setIsOpen(false)}>Quality</Link>
-          <Link to="/contact" className="block hover:text-indigo-600" onClick={() => setIsOpen(false)}>Contact Us</Link>
-          <Link to="/blogs" className="block hover:text-indigo-600" onClick={() => setIsOpen(false)}>Blogs</Link>
+      {/* About Us Mobile */}
+      <div className="mt-10">
+        <div className="flex justify-between items-center">
+          <Link to="/about" onClick={() => setIsOpen(false)} className="hover:text-indigo-600 uppercase">
+            About Us
+          </Link>
+          <button onClick={() => setAboutOpen(!aboutOpen)}>
+            <RiArrowDropDownLine
+              className={`w-6 h-6 transition-transform duration-300 ${aboutOpen ? "rotate-180" : ""}`}
+            />
+          </button>
         </div>
-      )}
+        {aboutOpen && (
+          <div className="pl-4 mt-2 space-y-1">
+            <Link to="/about#origin" className="block hover:text-indigo-600" onClick={() => setIsOpen(false)}>Origin and Evolution</Link>
+            <Link to="/about#mission" className="block hover:text-indigo-600" onClick={() => setIsOpen(false)}>Mission, Vision and Values</Link>
+            <Link to="/about#sustainability" className="block hover:text-indigo-600" onClick={() => setIsOpen(false)}>Sustainability</Link>
+            <Link to="/about#why-choose-us" className="block hover:text-indigo-600" onClick={() => setIsOpen(false)}>Why Choose Us</Link>
+          </div>
+        )}
+      </div>
+
+      {/* Product Mobile */}
+      <div>
+        <div className="flex justify-between items-center">
+          <Link to="/product" onClick={() => setIsOpen(false)} className="hover:text-indigo-600 uppercase">
+            Product
+          </Link>
+          <button onClick={() => setProductOpen(!productOpen)}>
+            <RiArrowDropDownLine
+              className={`w-6 h-6 transition-transform duration-300 ${productOpen ? "rotate-180" : ""}`}
+            />
+          </button>
+        </div>
+        {productOpen && (
+          <div className="pl-4 mt-2 space-y-1">
+            <Link to="/product#histology-and-pathology" className="block hover:text-indigo-600" onClick={() => setIsOpen(false)}>Histology and Pathology</Link>
+            <Link to="/product#tubes-and-vials" className="block hover:text-indigo-600" onClick={() => setIsOpen(false)}>Tubes and Vials</Link>
+            <Link to="/product#liquid-handling" className="block hover:text-indigo-600" onClick={() => setIsOpen(false)}>Liquid Handling</Link>
+            <Link to="/product#labware" className="block hover:text-indigo-600" onClick={() => setIsOpen(false)}>Labware</Link>
+            <Link to="/product#hospital-supplies" className="block hover:text-indigo-600" onClick={() => setIsOpen(false)}>Hospital Supplies</Link>
+            <Link to="/product#sharps-disposal" className="block hover:text-indigo-600" onClick={() => setIsOpen(false)}>Sharps Disposal</Link>
+            <Link to="/product#waste-bins" className="block hover:text-indigo-600" onClick={() => setIsOpen(false)}>Waste Bins</Link>
+            <Link to="/product#lights-and-scales" className="block hover:text-indigo-600" onClick={() => setIsOpen(false)}>Lights and Scales</Link>
+            <Link to="/product#measuring-and-testing" className="block hover:text-indigo-600" onClick={() => setIsOpen(false)}>Measuring and Testing</Link>
+            <Link to="/product#physiotherapy" className="block hover:text-indigo-600" onClick={() => setIsOpen(false)}>Physiotherapy</Link>
+          </div>
+        )}
+      </div>
+
+      {/* Other links */}
+      <Link to="/quality" className="block hover:text-indigo-600" onClick={() => setIsOpen(false)}>Quality</Link>
+      <Link to="/contact" className="block hover:text-indigo-600" onClick={() => setIsOpen(false)}>Contact Us</Link>
+      <Link to="/blogs" className="block hover:text-indigo-600" onClick={() => setIsOpen(false)}>Blogs</Link>
+    </div>
+  </>
+   )}
+
     </nav>
   );
 };
